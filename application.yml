@@ -17,4 +17,31 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
-    
+  cloud:
+      gateway:
+        routes:
+           - id: OTHER-CHARGES-SERVICE
+             uri: lb://OTHER-CHARGES-SERVICE
+             predicates:
+                  - Path=/charges/**
+           - id: CUSTOMER-SERVICE
+             uri: lb://CUSTOMER-SERVICE
+             predicates:
+                  - Path=/customer/**
+           - id: PRODUCT-SERVICE
+             uri: lb://PRODUCT-SERVICE
+             predicates:
+                  - Path=/product/**
+           - id: PRODUCT-USES-SERVICE
+             uri: lb://PRODUCT-USES-SERVICE
+             predicates:
+                  - Path=/productUses/**
+           - id: BILLING-SERVICE
+             uri: lb://BILLING-SERVICE
+             predicates:
+                  - Path=/bill/**
+           - id: PURCHASE-HISTORY-SERVICE
+             uri: lb://PURCHASE-HISTORY-SERVICE
+             predicates:
+                  - Path=/history/**
+            
