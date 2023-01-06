@@ -6,4 +6,17 @@ eureka:
       
 spring:
   application:
-     name: CONFIG-SERVER
+    name: OTHER-CHARGES-SERVICE
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    name: onlineservice
+    password: root
+    url: jdbc:mysql://localhost:3306/onlineservice
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    
